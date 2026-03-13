@@ -1,0 +1,11 @@
+{
+  "name": "flashcard-backend",
+  "version": "1.0.0",
+  "description": "FlashAI Backend — REST API",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  }
+}
