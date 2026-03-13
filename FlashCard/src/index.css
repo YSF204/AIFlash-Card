@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body:    'Courier Prime', monospace;
+
+  --color-cream:  #FFFDF0;
+  --color-white:  #FFFFFF;
+  --color-ink:    #000000;
+  --color-yellow: #FFEB3B;
+  --color-red:    #FF2D2D;
+  --color-blue:   #2563EB;
+  --color-green:  #16A34A;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: #FFFDF0;
+  color: #000;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cursor */
+* { cursor: default; }
+a, button, [role="button"] { cursor: pointer; }
+
+/* Selection */
+::selection { background: #FFEB3B; color: #000; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FFFDF0; }
+::-webkit-scrollbar-thumb { background: #000; border-radius: 0; }
+
+/* ── Flip Card 3D ─────────────────────────────────────────── */
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.flip-card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Neo-Brutal button base ───────────────────────────────── */
+.btn-brutal {
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #000;
+}
+.btn-brutal:hover:not(:disabled) {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #000;
+}
+.btn-brutal:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+.btn-brutal:disabled { opacity: 0.4; }
+.btn-brutal-yellow { background: #FFEB3B; }
+.btn-brutal-red    { background: #FF2D2D; color: #fff; }
+.btn-brutal-green  { background: #16A34A; color: #fff; }
+.btn-brutal-black  { background: #000; color: #fff; }
+
+/* ── Neo-brutal card ────────────────────────────────────────*/
+.brutal-card {
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0 #000;
+  background: #fff;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.brutal-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 #000;
+}
+
+/* ── Input ──────────────────────────────────────────────────*/
+.brutal-input {
+  border: 3px solid #000;
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  outline: none;
+  width: 100%;
+  color: #000;
+  resize: none;
+  transition: box-shadow 0.1s ease;
+}
+.brutal-input:focus {
+  box-shadow: 4px 4px 0 #000;
+}
+.brutal-input::placeholder { color: #999; }
+
+/* ── Label ──────────────────────────────────────────────────*/
+.brutal-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ── Stagger animations ─────────────────────────────────────*/
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.4s ease both; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in-right { animation: slideInRight 0.3s ease both; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.7s linear infinite; }
